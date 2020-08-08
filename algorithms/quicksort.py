@@ -19,5 +19,20 @@ def quicksort(A):
     return quicksort(less) + equal + quicksort(more)
 
 
+def quicksort(A):
+    if len(A) <= 0:
+        return A
+    mid_val = A[randint(0, len(A) - 1)]
+    l, e, m = [], [], []
+    for a in A:
+        if a == mid_val:
+            e.append(a)
+        elif a > mid_val:
+            m.append(a)
+        else:
+            l.append(a)
+    return quicksort(l) + e + quicksort(m)
+
+
 A = create_array()
 print(quicksort(A))
