@@ -1,11 +1,11 @@
 def zero_matrix(m):
-    rows = []
-    cols = []
+    rows = set()
+    cols = set()
     for r in range(len(m)):
         for c in range(len(m[0])):
             if m[r][c] == 0:
-                rows.append(r)
-                cols.append(c)
+                rows.add(r)
+                cols.add(c)
     for r in rows:
         for c in range(len(m[0])):
             m[r][c] = 0
