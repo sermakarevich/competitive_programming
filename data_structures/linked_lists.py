@@ -1,3 +1,4 @@
+from sklearn.preprocessing import scale
 from collections import deque
 
 llist = deque("abcde")
