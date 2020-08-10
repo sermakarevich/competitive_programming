@@ -30,36 +30,19 @@ class LinkedList:
         return " -> ".join([str(i) for i in nodes])
 
 
-def remove_duplicates(ll):
-    head = ll.head
-    seen_nodes = set([head.data])
-    while head.next:
-        if head.next.data in seen_nodes:
-            head.next = head.next.next
+def kth_to_last(k, ll):
+    for _ in range(1, k):
+        if ll.head.next is not None:
+            ll.head = ll.head.next
         else:
-            seen_nodes.add(head.next.data)
-            head = head.next
-    return ll
-
-
-def remove_duplicates_no_hash(ll):
-    slow = ll.head
-    while slow.next:
-        fast = slow.next
-        while fast.next:
-            if fast.data == slow.data:
-                slow = slow.next
-                fast = fast.next
-            else:
-                slow = slow.next
-                fast = fast.next
+            return
     return ll
 
 
 nodes_ = [random.randint(0, 10) for i in range(10)]
+k = 5
 print(nodes_)
 ll = LinkedList(nodes=nodes_)
 print(ll)
-ll = remove_duplicates_no_hash(ll)
+ll = kth_to_last(k, ll)
 print(ll)
-
